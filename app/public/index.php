@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Set env variables and enable errors
+ * Set env variables and enable error reporting in local environment
  */
 require_once(__DIR__ . "/lib/env.php");
 require_once(__DIR__ . "/lib/error_reporting.php");
 
 /**
- * Start session
+ * Start user session
  */
 session_start();
 
@@ -22,4 +22,5 @@ require_once(__DIR__ . "/lib/Route.php");
 require_once(__DIR__ . "/routes/index.php");
 require_once(__DIR__ . "/routes/user.php");
 
+// run router
 Route::run();

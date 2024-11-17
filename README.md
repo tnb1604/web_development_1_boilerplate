@@ -1,12 +1,25 @@
-# Argly
+# PHP Web Development Boilerplate
 
 ## About
 
-Argly is an application to support online argumentation. Arguments can be created, analyzed and critiqued.
+This repo contains some starter code for new PHP projects.
+
+What's included:
+
+- Docker setup including:
+  - PHP interpreter
+  - NGINX server
+  - MySQL (MariaDB) database
+  - PHP MyAdmin
+- A directory structure organized around the MVC pattern
+- A locally included routing utility: [https://github.com/steampixel/simplePHPRouter](https://github.com/steampixel/simplePHPRouter)
+- Bootstrap JS and CSS included in the header: [https://getbootstrap.com/](https://getbootstrap.com/)
 
 ## Usage
 
-In a terminal, from the cloned project folder, run:
+- Start local
+
+In a terminal, from the cloned/forked/download project folder, run:
 
 ```bash
 docker compose up
@@ -23,37 +36,20 @@ Or run:
 docker compose down
 ```
 
-### Client app
+## Important files and directories
 
-From the `app/public/assets/js/argly` directory, run:
+_The directory that contains all relevant back end code is in the `app/public` directory. Files and directories listed below are relative to that folder._
 
-- `npm i`
-- `npm run dev`
+- `index.php` - this it the starting point of the application. Any URL requested that is not a direct link (i.e. to a CSS file, image asset, etc.) is is handled by this file. This file handles setup and loading the application routes.
+- `/routes` - this directory contains files which create route handlers.
+- `/controllers` - controllers should contain the logic of your application. They are also responsible for getting data from potentially multiple models, performing logic and preparing data to be presented to the view layer.
+- `models` - models handle database CRUD operations.
+- `view` - views handle the display layer of the application. They should not contain logic or direct database/model access.
+- `view/pages` - organizing your front end code is important. Keeping minimal page-level views in this directory is a good idea.
+- `view/partials` - you should break up your front end to small, modular pieces so they can be organized and reused. Keeping small reusable front end pieces in these files is a good idea.
+- `dto` - PHP supports the use of classes. We want to follow object oriented principles and, as much as possible, have data move throughout our system in well defined structures. We can define shared class meant for only modelling data as DTO classes. It's a good idea to have our model methods always return dto objects.
+- `assets` - the assets directory should contain all are static public assets including CSS and JS files, images and other media.
 
-To build:
+## Good patterns
 
-- `npm run build`
-
-## TODO
-
-- setup directory structure
-- env file
-- import bootstrap
-- create basic design
-
-## To cover
-
-- project structure
-- dir includes: require_once(**DIR**. "/home.php");
-- formatting Intellephense
-- routing
-- low-fi approach
-- function/scoping
-- types
-- interfaces
-- falsey
-- code in markup
-- layers responsibility
-- postman
-- php global and use, function scope
-- typeish (more like hints)
+For most layers of the application, it is a good idea to have a single file per entity type. I.e., currently there is a `routes/user.php` to handle user routes. If you add routes for products, adding it to `routes/product.php` would be a good idea. Similarly, there is a single file and class for the user controller and user model. New entities should generally get their own route, controller and model files.
