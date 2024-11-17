@@ -52,9 +52,9 @@ _The directory that contains all relevant back end code is in the `app/public` d
 - `dto` - PHP supports the use of classes. We want to follow object oriented principles and, as much as possible, have data move throughout our system in well defined structures. We can define shared class meant for only modelling data as DTO classes. It's a good idea to have our model methods always return dto objects.
 - `assets` - the assets directory should contain all are static public assets including CSS and JS files, images and other media.
 - `lib` - the lib directory contains reused modules and utility files.
-- `lib/env.php` - defines global environment variables accessible throughout the application.
-- `lib/error_reporting.php` - contains a small bit of startup code to enable error messages in the local environment.
-- `lib/Route.php` - includes a routing utility class.
+  - `lib/env.php` - defines global environment variables accessible throughout the application.
+  - `lib/error_reporting.php` - contains a small bit of startup code to enable error messages in the local environment.
+  - `lib/Route.php` - includes a routing utility class.
 
 ## Good patterns
 
