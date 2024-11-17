@@ -44,9 +44,11 @@ _The directory that contains all relevant back end code is in the `app/public` d
 - `/routes` - this directory contains files which create route handlers.
 - `/controllers` - controllers should contain the logic of your application. They are also responsible for getting data from potentially multiple models, performing logic and preparing data to be presented to the view layer.
 - `models` - models handle database CRUD operations.
+  - `models/BaseModel.php` - contains a base class for other models. Currently, the base class handles retrieving the database credentials fron env variables and creating a new PDO instance.
+  - `models/UserModel.php` - example model with dummy data for retrieving all users and a single user. This class contains commented out code to demonstrate use of the base model's PDO instance.
 - `view` - views handle the display layer of the application. They should not contain logic or direct database/model access.
-- `view/pages` - organizing your front end code is important. Keeping minimal page-level views in this directory is a good idea.
-- `view/partials` - you should break up your front end to small, modular pieces so they can be organized and reused. Keeping small reusable front end pieces in these files is a good idea.
+  - `view/pages` - organizing your front end code is important. Keeping minimal page-level views in this directory is a good idea.
+  - `view/partials` - you should break up your front end to small, modular pieces so they can be organized and reused. Keeping small reusable front end pieces in these files is a good idea.
 - `dto` - PHP supports the use of classes. We want to follow object oriented principles and, as much as possible, have data move throughout our system in well defined structures. We can define shared class meant for only modelling data as DTO classes. It's a good idea to have our model methods always return dto objects.
 - `assets` - the assets directory should contain all are static public assets including CSS and JS files, images and other media.
 - `lib` - the lib directory contains reused modules and utility files.
