@@ -17,7 +17,7 @@ What's included:
 
 ## Usage
 
-- Start local
+- Start local 
 
 In a terminal, from the cloned/forked/download project folder, run:
 
